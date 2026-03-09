@@ -808,3 +808,14 @@ extension Array {
     return self[self.indices.suffix(from: 0)]
   }
 }
+
+
+// MARK: Decodable
+
+extension Path: Decodable {
+  public init(from decoder: Decoder) throws {
+    let container = try decoder.singleValueContainer()
+    let decodedString = try container.decode(String.self)
+    self.init(decodedString)
+  }
+}
