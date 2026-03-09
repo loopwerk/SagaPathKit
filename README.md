@@ -1,7 +1,5 @@
 # PathKit
 
-[![Build Status](https://travis-ci.org/kylef/PathKit.svg)](https://travis-ci.org/kylef/PathKit)
-
 Effortless path operations in Swift.
 
 ## Usage
