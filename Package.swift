@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.10
 import PackageDescription
 
 let package = Package(
@@ -11,6 +11,6 @@ let package = Package(
   ],
   targets: [
     .target(name: "PathKit", dependencies: [], path: "Sources"),
-    .testTarget(name: "PathKitTests", dependencies: ["PathKit", "Spectre"], path:"Tests/PathKitTests")
+    .testTarget(name: "PathKitTests", dependencies: ["PathKit", "Spectre"], path:"Tests/PathKitTests", exclude: ["Fixtures"])
   ]
 )

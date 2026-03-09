@@ -14,7 +14,7 @@ import Foundation
 
 
 /// Represents a filesystem path.
-public struct Path {
+public struct Path: Sendable {
   /// The character used by the OS to separate two path elements
   public static let separator = "/"
 
@@ -194,7 +194,7 @@ extension Path {
   }
 }
 
-internal protocol FileSystemInfo {
+internal protocol FileSystemInfo: Sendable {
   func isFSCaseSensitiveAt(path: Path) -> Bool
 }
 
