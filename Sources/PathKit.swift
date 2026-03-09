@@ -420,7 +420,7 @@ extension Path {
 
   /// Creates a symbolic link at a new destination.
   ///
-  /// - Parameter destintation: The location where the link will be created.
+  /// - Parameter destination: The location where the link will be created.
   ///
   public func symlink(_ destination: Path) throws -> () {
     try Path.fileManager.createSymbolicLink(atPath: self.path, withDestinationPath: destination.path)
@@ -540,8 +540,6 @@ extension Path {
   ///
   /// - Parameter encoding: the encoding which should be used to represent the string as bytes.
   ///   (by default: `NSUTF8StringEncoding`)
-  ///
-  /// - Returns: the contents of the file at the specified path as string.
   ///
   public func write(_ string: String, encoding: String.Encoding = String.Encoding.utf8) throws {
     try string.write(toFile: normalize().path, atomically: true, encoding: encoding)
