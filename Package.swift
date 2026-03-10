@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-  name: "PathKit",
+  name: "SagaPathKit",
   products: [
-    .library(name: "PathKit", targets: ["PathKit"]),
+    .library(name: "SagaPathKit", targets: ["SagaPathKit"]),
   ],
   targets: [
-    .target(name: "PathKit", dependencies: [], path: "Sources"),
-    .testTarget(name: "PathKitTests", dependencies: ["PathKit"], path: "Tests/PathKitTests", exclude: ["Fixtures"]),
+    .target(name: "SagaPathKit", dependencies: [], path: "Sources"),
+    .testTarget(name: "SagaPathKitTests", dependencies: ["SagaPathKit"], path: "Tests/SagaPathKitTests", exclude: ["Fixtures"]),
   ]
 )

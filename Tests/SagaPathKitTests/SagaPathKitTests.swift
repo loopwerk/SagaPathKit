@@ -1,5 +1,5 @@
 import Foundation
-@testable import PathKit
+@testable import SagaPathKit
 import XCTest
 
 struct ThrowError: Error, Equatable {}
@@ -12,7 +12,7 @@ struct FakeFSInfo: FileSystemInfo {
   }
 }
 
-class PathKitTests: XCTestCase {
+class SagaPathKitTests: XCTestCase {
   var fixtures: Path!
 
   override func setUp() {
