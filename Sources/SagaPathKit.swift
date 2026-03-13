@@ -744,6 +744,16 @@ public func + (lhs: Path, rhs: String) -> Path {
   return lhs.path + rhs
 }
 
+/// Appends a Path fragment to another Path to produce a new Path
+public func / (lhs: Path, rhs: Path) -> Path {
+  return lhs + rhs
+}
+
+/// Appends a String fragment to another Path to produce a new Path
+public func / (lhs: Path, rhs: String) -> Path {
+  return lhs + rhs
+}
+
 /// Appends a String fragment to another String to produce a new Path
 func + (lhs: String, rhs: String) -> Path {
   if rhs.hasPrefix(Path.separator) {
