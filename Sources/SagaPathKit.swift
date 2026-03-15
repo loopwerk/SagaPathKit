@@ -802,12 +802,17 @@ extension Array {
   }
 }
 
-// MARK: Decodable
+// MARK: Codable
 
-extension Path: Decodable {
+extension Path: Codable {
   public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
     let decodedString = try container.decode(String.self)
     self.init(decodedString)
+  }
+
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.singleValueContainer()
+    try container.encode(path)
   }
 }

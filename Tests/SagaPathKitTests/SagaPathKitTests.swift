@@ -504,6 +504,28 @@ class SagaPathKitTests: XCTestCase {
     XCTAssertEqual(paths, results.sorted(by: <))
   }
 
+  // MARK: - Codable
+
+  func testEncode() throws {
+    let path = Path("/usr/bin/swift")
+    let data = try JSONEncoder().encode(path)
+    let decoded = try JSONDecoder().decode(String.self, from: data)
+    XCTAssertEqual(decoded, "/usr/bin/swift")
+  }
+
+  func testDecode() throws {
+    let json = #""/usr/bin/swift""#.data(using: .utf8)!
+    let path = try JSONDecoder().decode(Path.self, from: json)
+    XCTAssertEqual(path, Path("/usr/bin/swift"))
+  }
+
+  func testRoundTrip() throws {
+    let original = Path("content/articles/hello-world/index.html")
+    let data = try JSONEncoder().encode(original)
+    let decoded = try JSONDecoder().decode(Path.self, from: data)
+    XCTAssertEqual(decoded, original)
+  }
+
   // MARK: - Match
 
   func testMatchRelativePath() {
