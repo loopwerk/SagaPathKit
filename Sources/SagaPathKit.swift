@@ -756,6 +756,8 @@ public func / (lhs: Path, rhs: String) -> Path {
 
 /// Appends a String fragment to another String to produce a new Path
 func + (lhs: String, rhs: String) -> Path {
+  if lhs.isEmpty { return Path(rhs) }
+  if rhs.isEmpty { return Path(lhs) }
   if rhs.hasPrefix(Path.separator) {
     // Absolute paths replace relative paths
     return Path(rhs)
